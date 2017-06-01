@@ -1,0 +1,42 @@
+﻿<!Doctype html>
+<html>
+
+<head>
+
+
+    <script>
+        var count = 0;
+     
+
+        function refresh()
+        {
+            if ( count > 0 ) { 
+            refreshCounts(-1);
+                var one = Math.floor((Math.random()*9)+1);
+                var two = Math.floor((Math.random()*9)+1);
+                var three = Math.floor((Math.random()*9)+1);
+
+                document.getElementById('first').innerHTML = one;
+                document.getElementById('second').innerHTML =two;
+                document.getElementById('third').innerHTML=three;
+
+                if ( one == two && two == three && three == one ) {
+                   count=count + 5;
+                } else {
+                    count = count;
+                }
+            } 
+        }
+
+        function refreshCounts( value ) {
+            count = count + value;
+            document.getElementById("m").innerHTML = count;
+<p>
+    <input type="button" value="Spin" onClick="refresh()">
+</p>
+
+<p>
+    <input type="button" value="Add Points" onClick="refreshCounts(+1)">
+</p>
+
+<p id="m">0</p>
